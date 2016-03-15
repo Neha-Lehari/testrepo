@@ -1,0 +1,40 @@
+<html>
+<head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/offline-js/0.7.15/themes/offline-theme-slide.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/offline-js/0.7.15/themes/offline-language-english.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/offline-js/0.7.15/themes/offline-theme-chrome.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/offline-js/0.7.15/offline.js">
+</script>
+<style>
+h1{
+background-color:pink;
+}
+</style>
+</head>
+<body>
+<h1>Adding offline.js<h1>
+
+
+<script>
+    $(function(){
+
+        var 
+            $online = $('.online'),
+            $offline = $('.offline');
+
+        Offline.on('confirmed-down', function () {
+            $online.fadeOut(function () {
+                $offline.fadeIn();
+            });
+        });
+
+        Offline.on('confirmed-up', function () {
+            $offline.fadeOut(function () {
+                $online.fadeIn();
+            });
+        });
+
+    });
+</script>
+</body>
+</html>
